@@ -22,6 +22,48 @@
 #include <cutils/log.h>
 
 #include <stdint.h>
+
+/* Red LED */
+char const*const RED_LED_FILE
+        = "/sys/class/leds/red/brightness";
+
+char const*const RED_TRIGGER_FILE
+        = "/sys/devices/platform/1100f000.i2c/i2c-5/5-0034/rt5081_pmu_rgbled/leds/red/trigger";
+
+char const*const RED_DELAY_ON_FILE
+        = "/sys/devices/platform/1100f000.i2c/i2c-5/5-0034/rt5081_pmu_rgbled/leds/red/delay_on";
+
+char const*const RED_DELAY_OFF_FILE
+        = "/sys/devices/platform/1100f000.i2c/i2c-5/5-0034/rt5081_pmu_rgbled/leds/red/delay_off";
+
+/* Green LED */
+char const*const GREEN_LED_FILE
+        = "/sys/class/leds/green/brightness";
+
+char const*const GREEN_TRIGGER_FILE
+        = "/sys/devices/platform/1100f000.i2c/i2c-5/5-0034/rt5081_pmu_rgbled/leds/green/trigger";
+
+char const*const GREEN_DELAY_ON_FILE
+        = "/sys/devices/platform/1100f000.i2c/i2c-5/5-0034/rt5081_pmu_rgbled/leds/green/delay_on";
+
+char const*const GREEN_DELAY_OFF_FILE
+        = "/sys/devices/platform/1100f000.i2c/i2c-5/5-0034/rt5081_pmu_rgbled/leds/green/delay_off";
+
+/* BLUE LED */
+char const*const BLUE_LED_FILE
+        = "/sys/class/leds/blue/brightness";
+
+char const*const BLUE_TRIGGER_FILE
+        = "/sys/devices/platform/1100f000.i2c/i2c-5/5-0034/rt5081_pmu_rgbled/leds/blue/trigger";
+
+char const*const BLUE_DELAY_ON_FILE
+        = "/sys/devices/platform/1100f000.i2c/i2c-5/5-0034/rt5081_pmu_rgbled/leds/blue/delay_on";
+
+char const*const BLUE_DELAY_OFF_FILE
+        = "/sys/devices/platform/1100f000.i2c/i2c-5/5-0034/rt5081_pmu_rgbled/leds/blue/delay_off";
+
+
+
 #include <string.h>
 #include <unistd.h>
 #include <errno.h>
@@ -43,12 +85,12 @@ static struct light_state_t g_notification;
 
 static int g_backlight = 255;
 
-/* MEIZU LED */
-char const *const MEIZU_LED_FILE = "/sys/class/leds/button-backlight/brightness";
-char const *const MEIZU_TRIGGER_FILE = "/sys/class/leds/button-backlight/trigger";
+/* INFINIX LED */
+char const *const INFINIX_LED_FILE = "/sys/class/leds/button-backlight/brightness";
+char const *const INFINIX_TRIGGER_FILE = "/sys/class/leds/button-backlight/trigger";
 
-char const *const MEIZU_DELAY_ON_FILE = "/sys/class/leds/button-backlight/delay_on";
-char const *const MEIZU_DELAY_OFF_FILE = "/sys/class/leds/button-backlight/delay_off";
+char const *const INFINIX_DELAY_ON_FILE = "/sys/class/leds/button-backlight/delay_on";
+char const *const INFINIX_DELAY_OFF_FILE = "/sys/class/leds/button-backlight/delay_off";
 
 /* BACKLIGHT */
 char const *const LCD_FILE = "/sys/class/leds/lcd-backlight/brightness";
