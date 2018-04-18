@@ -1,0 +1,15 @@
+[
+	{
+		"remote": "github",
+		"repository": "lalitjoshi06/Vendor-Infinix-X603
+",
+		"target_path": "vendor/infinix/x603",
+		"branch": "master"
+	},
+	{
+		"remote": "github",
+		"repository": "joe2k01/KeySwitch",
+		"target_path": "packages/apps/KeySwitch",
+		"branch": "AOSP-build"
+	}
+]
