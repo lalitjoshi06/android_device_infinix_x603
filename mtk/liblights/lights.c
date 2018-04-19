@@ -20,8 +20,33 @@
 #define LOG_TAG "lights"
 
 #include <cutils/log.h>
-
 #include <stdint.h>
+#include <string.h>
+#include <unistd.h>
+#include <errno.h>
+#include <fcntl.h>
+#include <pthread.h>
+#include <time.h>
+#include <stdlib.h>
+#include <sys/ioctl.h>
+#include <sys/types.h>
+#include <hardware/lights.h>
+
+static pthread_once_t g_init = PTHREAD_ONCE_INIT;
+static pthread_mutex_t g_lock = PTHREAD_MUTEX_INITIALIZER;
+
+static int g_attention;
+static struct light_state_t g_battery;
+static struct light_state_t g_notification;
+
+static int g_backlight = 255;
+
+/* INFINIX LED */
+char const *const INFINIX_LED_FILE = "/sys/class/leds/button-backlight/brightness";
+char const *const INFINIX_TRIGGER_FILE = "/sys/class/leds/button-backlight/trigger";
+
+char const *const INFINIX_DELAY_ON_FILE = "/sys/class/leds/button-backlight/delay_on";
+char const *const INFINIX_DELAY_OFF_FILE = "/sys/class/leds/button-backlight/delay_off";
 
 /* Red LED */
 char const*const RED_LED_FILE
@@ -61,36 +86,6 @@ char const*const BLUE_DELAY_ON_FILE
 
 char const*const BLUE_DELAY_OFF_FILE
         = "/sys/devices/platform/1100f000.i2c/i2c-5/5-0034/rt5081_pmu_rgbled/leds/blue/delay_off";
-
-
-
-#include <string.h>
-#include <unistd.h>
-#include <errno.h>
-#include <fcntl.h>
-#include <pthread.h>
-#include <time.h>
-#include <stdlib.h>
-#include <sys/ioctl.h>
-#include <sys/types.h>
-
-#include <hardware/lights.h>
-
-static pthread_once_t g_init = PTHREAD_ONCE_INIT;
-static pthread_mutex_t g_lock = PTHREAD_MUTEX_INITIALIZER;
-
-static int g_attention;
-static struct light_state_t g_battery;
-static struct light_state_t g_notification;
-
-static int g_backlight = 255;
-
-/* INFINIX LED */
-char const *const INFINIX_LED_FILE = "/sys/class/leds/button-backlight/brightness";
-char const *const INFINIX_TRIGGER_FILE = "/sys/class/leds/button-backlight/trigger";
-
-char const *const INFINIX_DELAY_ON_FILE = "/sys/class/leds/button-backlight/delay_on";
-char const *const INFINIX_DELAY_OFF_FILE = "/sys/class/leds/button-backlight/delay_off";
 
 /* BACKLIGHT */
 char const *const LCD_FILE = "/sys/class/leds/lcd-backlight/brightness";
@@ -141,7 +136,7 @@ static int is_lit(struct light_state_t const *state)
     return state->color & 0x00ffffff;
 }
 
-static int meizu_blink(int level, int onMS, int offMS)
+static int INFINIX_blink(int level, int onMS, int offMS)
 {
 	static int preStatus; /* 0: off, 1: blink, 2: no blink */
 	int nowStatus;
@@ -158,18 +153,18 @@ static int meizu_blink(int level, int onMS, int offMS)
 		return -1;
 
 	if (nowStatus == 0)
-		write_int(MEIZU_LED_FILE, 0);
+		write_int(INFINIX_LED_FILE, 0);
 	else if (nowStatus == 1) {
-		write_str(MEIZU_TRIGGER_FILE, "timer");
-		while (((access(MEIZU_DELAY_OFF_FILE, F_OK) == -1) ||
-			(access(MEIZU_DELAY_OFF_FILE, R_OK|W_OK) == -1)) && i < 10) {
+		write_str(INFINIX_TRIGGER_FILE, "timer");
+		while (((access(INFINIX_DELAY_OFF_FILE, F_OK) == -1) ||
+			(access(INFINIX_DELAY_OFF_FILE, R_OK|W_OK) == -1)) && i < 10) {
 			i++;
 		}
-		write_int(MEIZU_DELAY_OFF_FILE, offMS);
-		write_int(MEIZU_DELAY_ON_FILE, onMS);
+		write_int(INFINIX_DELAY_OFF_FILE, offMS);
+		write_int(INFINIX_DELAY_ON_FILE, onMS);
 	} else {
-		write_str(MEIZU_TRIGGER_FILE, "none");
-		write_int(MEIZU_LED_FILE, 255); /* default full brightness */
+		write_str(INFINIX_TRIGGER_FILE, "none");
+		write_int(INFINIX_LED_FILE, 255); /* default full brightness */
 	}
 	preStatus = nowStatus;
 	return 0;
@@ -229,11 +224,11 @@ static int set_speaker_light_locked(struct light_device_t *dev,
     }
 
     if (red)
-	   meizu_blink(red, onMS, offMS);
+	   INFINIX_blink(red, onMS, offMS);
     else if (green)
-	meizu_blink(green, onMS, offMS);
+	INFINIX_blink(green, onMS, offMS);
     else
-	meizu_blink(0, 0, 0);
+	INFINIX_blink(0, 0, 0);
 
     return 0;
 }
@@ -337,7 +332,7 @@ struct hw_module_t HAL_MODULE_INFO_SYM = {
     .version_major = 1,
     .version_minor = 0,
     .id = LIGHTS_HARDWARE_MODULE_ID,
-    .name = "Meizu Lights Module",
+    .name = "INFINIX Lights Module",
     .author = "MediaTek",
-    .methods = &lights_module_methods,
+	.methods = &lights_module_methods,
 };
