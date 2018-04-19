@@ -27,6 +27,7 @@ on early-init
     write /proc/bootprof "INIT:early-init"
     mount debugfs debugfs /sys/kernel/debug
     chmod 0755 /sys/kernel/debug
+    chmod 0644 /proc/cmdline
 
 on init
     # Support legacy paths
