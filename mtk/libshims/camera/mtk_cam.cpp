@@ -7,6 +7,8 @@
 #include <hardware/power.h>
 #include <hardware/hardware.h>
 
+void _ZN7android16CameraParameters20KEY_CAMERA_APK_VALUEE () {
+}
 void _ZN7android14CameraMetadata14getTagFromNameEPKcPKNS_19VendorTagDescriptorEPj () {
 }
 void _ZN14CustParameters7mPQCustE () {
