@@ -43,10 +43,15 @@ import com.android.internal.telephony.MtkEccList;
 public class MT6757 extends RIL implements CommandsInterface {
     static final String LOG_TAG = "MT6757";
 
+    static final int REFRESH_SESSION_RESET = 6; /* Session reset */
+
     static final int RIL_REQUEST_VENDOR_BASE = 2000;
     static final int RIL_REQUEST_MODEM_POWEROFF = (RIL_REQUEST_VENDOR_BASE + 10);
+//    static final int RIL_REQUEST_DUAL_SIM_MODE_SWITCH  = (RIL_REQUEST_VENDOR_BASE + 11);
+//    static final int RIL_REQUEST_USIM_AUTHENTICATION  = (RIL_REQUEST_VENDOR_BASE + 27);
     static final int RIL_REQUEST_MODEM_POWERON = (RIL_REQUEST_VENDOR_BASE + 28);
     static final int RIL_REQUEST_RESUME_REGISTRATION  = (RIL_REQUEST_VENDOR_BASE + 65);
+//    static final int RIL_REQUEST_SIM_INTERFACE_SWITCH  = (RIL_REQUEST_VENDOR_BASE + 68);
     static final int RIL_REQUEST_SET_CALL_INDICATION = (RIL_REQUEST_VENDOR_BASE + 86);
     static final int RIL_REQUEST_EMERGENCY_DIAL = (RIL_REQUEST_VENDOR_BASE + 87);
     static final int RIL_REQUEST_SET_ECC_SERVICE_CATEGORY = (RIL_REQUEST_VENDOR_BASE + 88);
@@ -62,7 +67,9 @@ public class MT6757 extends RIL implements CommandsInterface {
     static final int RIL_UNSOL_CALL_INFO_INDICATION = (RIL_UNSOL_VENDOR_BASE + 49);
     static final int RIL_UNSOL_MD_STATE_CHANGE = (RIL_UNSOL_VENDOR_BASE + 53);
     static final int RIL_UNSOL_SET_ATTACH_APN = (RIL_UNSOL_VENDOR_BASE + 73);
-	
+//    static final int RIL_UNSOL_MAL_AT_INFO = (RIL_UNSOL_VENDOR_BASE + 74);
+//    static final int RIL_UNSOL_MAIN_SIM_INFO = (RIL_UNSOL_VENDOR_BASE + 75);
+
     private int[] dataCallCids = { -1, -1, -1, -1, -1 };
 
     private Context mContext;
@@ -263,6 +270,14 @@ public class MT6757 extends RIL implements CommandsInterface {
         String rawefId = p.readString();
         response.efId   = rawefId == null ? 0 : Integer.parseInt(rawefId);
         response.aid = p.readString();
+
+        if (response.refreshResult > IccRefreshResponse.REFRESH_RESULT_RESET) {
+            if (response.refreshResult == REFRESH_SESSION_RESET) {
+                response.refreshResult = IccRefreshResponse.REFRESH_RESULT_RESET;
+            } else {
+                response.refreshResult = IccRefreshResponse.REFRESH_RESULT_INIT;
+            }
+        }
 
         return response;
     }
