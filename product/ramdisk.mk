@@ -1,6 +1,7 @@
 # rootdir
 PRODUCT_COPY_FILES += \
 	device/infinix/x603/rootdir/enableswap.sh:root/enableswap.sh \
+	device/infinix/x603/rootdir/init.connectivity.rc:root/init.connectivity.rc \
 	device/infinix/x603/rootdir/factory_init.project.rc:root/factory_init.project.rc \
 	device/infinix/x603/rootdir/factory_init.rc:root/factory_init.rc \
 	device/infinix/x603/rootdir/fstab.mt6757:root/fstab.mt6757 \
