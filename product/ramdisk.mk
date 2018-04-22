@@ -7,6 +7,7 @@ PRODUCT_COPY_FILES += \
 	device/infinix/x603/rootdir/fstab.mt6757:root/fstab.mt6757 \
 	device/infinix/x603/rootdir/init.microtrust.rc:root/init.microtrust.rc \
 	device/infinix/x603/rootdir/init.modem.rc:root/init.modem.rc \
+	device/infinix/x603/rootdir/init.sensor.rc:root/init.sensor.rc \
 	device/infinix/x603/rootdir/init.mt6757.rc:root/init.mt6757.rc \
 	device/infinix/x603/rootdir/init.mt6757.usb.rc:root/init.mt6757.usb.rc \
 	device/infinix/x603/rootdir/init.project.rc:root/init.project.rc \
