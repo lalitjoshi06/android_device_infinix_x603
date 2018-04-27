@@ -7,8 +7,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PACKAGES += \
     libccci_util \
     librilmtk \
-    mtkrild
-
+    mtkrild \
+	rilproxy \
+	librilproxy \
+	mtkrildmd2 \
+	mtk-rilmd2
 
 # Configurations
 PRODUCT_COPY_FILES += \
