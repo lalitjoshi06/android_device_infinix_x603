@@ -1116,7 +1116,7 @@ service DMAgent /vendor/bin/dm_agent_binder
 
 service PPLAgent /vendor/bin/ppl_agent
     class main
-    user root
+    user system
     group system cache
 
 service vtservice /vendor/bin/vtservice
