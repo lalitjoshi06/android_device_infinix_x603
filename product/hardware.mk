@@ -39,11 +39,16 @@ PRODUCT_PACKAGES += \
 
 # Mtk symbols & shim
 PRODUCT_PACKAGES += \
-    libshim_asc \
-    libshim_audio \
-    libshim_audioCompat \
-    libshim_cam \
-    libshim_fence \
-    libshim_gui \
-    libshim_parcel \
-	libshim_ui
+    icu53 \
+	mtk_fence \
+	mtk_omx \
+	mtk_xlog \
+	mtk_ui \
+	mtk_parcel \
+	icu55 \
+	mtk_gps \
+	mtk_bionic \
+	mtk_cam \
+	mtk_asc \
+	mtk_audioCompat \
+	mtk_audio

@@ -30,7 +30,8 @@ on early-init
     chmod 0644 /proc/cmdline
 
 on init
-    # Support legacy paths
+    export LD_PRELOAD "libmtk_symbols.so"
+	# Support legacy paths
     symlink /sdcard /mnt/sdcard
 
     # if primary storage is physical, set ro.vold.primary_physical to 1

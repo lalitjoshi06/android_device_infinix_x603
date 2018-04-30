@@ -1,9 +1,4 @@
 # RIL
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.kernel.android.checkjni=0 \
-    ro.com.android.mobiledata=false
-
-# RIL
 PRODUCT_PACKAGES += \
     libccci_util \
     librilmtk \
@@ -12,6 +7,7 @@ PRODUCT_PACKAGES += \
 	librilproxy \
 	mtkrildmd2 \
 	mtk-rilmd2
+
 
 # Configurations
 PRODUCT_COPY_FILES += \
