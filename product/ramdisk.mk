@@ -13,4 +13,4 @@ PRODUCT_COPY_FILES += \
 	device/infinix/x603/rootdir/init.rilproxy.rc:root/init.rilproxy.rc \
 	device/infinix/x603/rootdir/init.volte.rc:root/init.volte.rc \
 	device/infinix/x603/rootdir/recovery.fstab:root/recovery.fstab \
-	device/infinix/x603/rootdir/ueventd.mt6757.rc:root/ueventd.mt6757.rc \
+	device/infinix/x603/rootdir/ueventd.mt6757.rc:root/ueventd.mt6757.rc
