@@ -15,3 +15,7 @@ PRODUCT_COPY_FILES += \
 
 PRODUCT_PACKAGES += \
 Stk
+# Radio dependencies
+PRODUCT_PACKAGES += \
+	muxreport \
+	terservice

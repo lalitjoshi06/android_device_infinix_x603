@@ -1,3 +1,3 @@
 # RIL
 BOARD_CONNECTIVITY_VENDOR := MediaTek
-BOARD_USES_LEGACY_MTK_AV_BLOB := true
+BOARD_RIL_CLASS := ../../../device/infinix/x603/ril
