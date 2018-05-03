@@ -1,2 +1,0 @@
-# Media
-TARGET_OMX_LEGACY_RESCALING := true
