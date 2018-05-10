@@ -6,7 +6,9 @@ PRODUCT_PACKAGES += \
 	rilproxy \
 	librilproxy \
 	mtkrildmd2 \
-	mtk-rilmd2
+	mtk-rilmd2 \
+	viarild \
+	libviatelecom-withuim-ril
 
 
 # Configurations
@@ -18,4 +20,6 @@ Stk
 # Radio dependencies
 PRODUCT_PACKAGES += \
 	muxreport \
-	terservice
+	terservice \
+	gsm0710muxd \
+	gsm0710muxdmd2
