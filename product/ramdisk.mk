@@ -16,7 +16,4 @@ PRODUCT_COPY_FILES += \
 	device/infinix/x603/rootdir/recovery.fstab:root/recovery.fstab \
 	device/infinix/x603/rootdir/ueventd.mt6757.rc:root/ueventd.mt6757.rc \
 	device/infinix/x603/rootdir/init.common_svc.rc:root/init.common_svc.rc \
-	device/infinix/x603/rootdir/init.epdg.rc:root/init.epdg.rc \
-	device/infinix/x603/rootdir/meta_init.connectivity.rc:root/meta_init.connectivity.rc \
-	device/infinix/x603/rootdir/meta_init.modem.rc:root/meta_init.modem.rc \
-	device/infinix/x603/rootdir/meta_init.project.rc:root/meta_init.project.rc
+	device/infinix/x603/rootdir/init.epdg.rc:root/init.epdg.rc

@@ -9,11 +9,11 @@ Working:
 4. Audio
 5. Video
 6. BT Fixed on 18.04.2018
+7. camera both and flash light
 
 Not Working
 1. Ril
-2. Camera
-3. Flashlight
+
 
 Infinix Zero 5  - LineageOS 14.1 
 
