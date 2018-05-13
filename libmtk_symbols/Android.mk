@@ -4,15 +4,10 @@ include $(CLEAR_VARS)
 LOCAL_SRC_FILES := \
 	mtk_xlog.cpp \
 	mtk_gui.cpp \
-	mtkaudio.cpp  \
 	mtkcamhack.cpp \
 	mtk_ui.cpp \
 	mtk_omx.cpp \
-	icu55.c \
-	icu53.c \
-	mtk_audioCompat.c \
 	mtk_bionic.cpp \
-	mtk_fence.cpp \
 	mtk_gps.cpp
 	
 
