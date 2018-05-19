@@ -6,31 +6,19 @@ persist.sys.usb.config=mass_storage,adb
 #
 # system.prop for generic sdk
 #
-
+# RIL
 rild.libpath=mtk-ril.so
 rild.libargs=-d /dev/ttyC0
-
-
-# MTK, Infinity, 20090720 {
+# Wifi
 wifi.interface=wlan0
-# MTK, Infinity, 20090720 }
-
-# MTK, mtk03034, 20101210 {
 ro.mediatek.wlan.wsc=1
-# MTK, mtk03034 20101210}
-# MTK, mtk03034, 20110318 {
 ro.mediatek.wlan.p2p=1
-# MTK, mtk03034 20110318}
-
-# MTK, mtk03034, 20101213 {
 mediatek.wlan.ctia=0
-# MTK, mtk03034 20101213}
-
-
+wifi.tethering.interface=ap0
+wifi.direct.interface=p2p0
 #
 wifi.tethering.interface=ap0
 #
-
 ro.opengles.version=196610
 # ro.kernel.qemu=1
 # ro.kernel.qemu.gles=0
@@ -56,7 +44,6 @@ ro.sys.usb.charging.only=yes
 # audio
 ro.camera.sound.forced=0
 ro.audio.silent=0
-
 ro.zygote.preload.enable=0
 
 # temporary enables NAV bar (soft keys)
@@ -76,9 +63,7 @@ ro.sf.lcd_density=480
 ro.mtk_perf_simple_start_win=1
 ro.mtk_perf_fast_start_win=1
 ro.mtk_perf_response_time=1
-#add by zhuyiqun for foursemi smartpa 2017-7-24
 persist.smartpa.type=tfa98xx
-#add by rui.zhang for fingerprint 20170221
 persist.sys.sw.key.mod=2
 persist.sys.sw.enroll.double=100
 persist.sys.sw.verify.retry=5
@@ -87,7 +72,6 @@ persist.sys.sw.msg.base=1100
 persist.sys.sw.enroll.percent=1
 persist.sys.sw.enroll.frm.num=14
 persist.sys.sw.transsion.f14=1
-#add by xumin.yan for ps value range 20170414
 persist.midtest.ps.noise.min=0
 persist.midtest.ps.noise.max=100
 ro.sys.hall.support=1
@@ -95,11 +79,6 @@ ro.sys.hall.support=1
 #
 # ADDITIONAL_BUILD_PROPERTIES
 #
-ro.lovelyfonts_support=1
-ro.product.first_api_level=24
-ro.config.ringtone=Landscape.ogg
-ro.config.notification_sound=Infinix_XUI_SMS.ogg
-ro.config.alarm_alert=Sky.ogg
 ro.carrier=unknown
 ro.cy_himgr_support=1
 ro.cy_himgr_style=0
@@ -127,7 +106,6 @@ ro.frp.pst=/dev/block/platform/mtk-msdc.0/11230000.msdc0/by-name/frp
 ro.mtk_protocol1_rat_config=Lf/Lt/W/G
 ro.mediatek.version.branch=alps-mp-n0.mp5
 ro.mediatek.version.release=X603-H575A-N-IN-180420V205
-ro.rlk.xos.patch.id=XOSP64-V3.0.251-P2-171207
 ro.mediatek.version.sdk=4
 ro.setupwizard.mode=OPTIONAL
 ro.com.google.gmsversion=ro.com.google.gmsversion=7.0_201803
@@ -192,49 +170,24 @@ ro.mtk_dual_mic_support=0
 ro.mtk_is_tablet=0
 ro.mtk_pow_perf_support=1
 persist.mtk_nlp_switch_support=1
-ro.rlk_project=x603
-ro.rlk.smartpa=1
 ro.md_gyroscope=1
 ro.md_pump_express=1
 ro.mtk_show_msensor_toast=1
 ro.thirdcamera.supported=1
 ro.com.android.mobiledata=false
 ro.md.color.temp=1
-ro.india_sos_emergency_support=1
 ro.md.dual.camera=1
-ro.infinix.is_india=1
-ro.infinix.camera.colour=1
-ro.xcloud_wifi_support=1
 ro.power_support=1
 ro.power_save_support=1
-ro.xsecurity_support=1
-ro.xoslauncher_support=1
 ro.scrollshot_support=1
 ro.arcsoft.burst=1
-ro.xmusic_support=1
 ro.fingerprint_support=1
-ro.xos_scrollshot_support=1
-ro.xos_three_screenshot_support=1
-ro.xhide_support=1
 ro.os_mgz_keyguard_support=1
 ro.os_auto_unlock_support=1
 ro.action_support=1
 ro.gesture_path=/proc/gesture_function
-ro.rlk_single_hand_mode_support=1
 ro.systemui_single_hand_support=1
-ro.xui.display.id=v3.0
-ro.rlk_hall_support=1
-ro.rlk_hall_width=1080
-ro.rlk_hall_height=1964
-ro.rlk_hall_style=3
-ro.xos.systemui3_0=1
-ro.rlk_led_light=1
-ro.rlk.led_switch=1
-ro.os_security_question_support=1
-ro.sync_heartbeat_support=1
-ro.infinix_wakelock_screenon=1
 ro.os_otg_no_charge=1
-ro.os_vlife_lockScreen_state=1
 ro.pumpexpression_path=/sys/devices/platform/charger/Pump_Express
 ro.os_new_led_support=1
 ro.sleep_master=1
@@ -272,12 +225,8 @@ ro.sys.sdcardfs=1
 persist.mtk.datashaping.support=1
 persist.datashaping.alarmgroup=1
 ro.media.maxmem=500000000
-persist.log.tag.CdmaMoSms=I
-persist.log.tag.CdmaMtSms=I
 ro.mtk_log_hide_gps=0
 ro.mtk_modem_monitor_support=1
-ro.have_aee_feature=1
-ro.rlk_remove_wakelock_support=1
 ro.view.dropframe=false
 persist.sys.view.gpower=true
 ro.proc_mgr.support=true
@@ -288,7 +237,6 @@ dalvik.vm.heapstartsize=16m
 dalvik.vm.heapminfree=4m
 dalvik.vm.heapmaxfree=8m
 dalvik.vm.heaptargetutilization=0.75
-ro.mtk_pps_support=1
 ro.os_quick_charge=yes
 ro.os_camera_rear=12M+13M
 ro.os_camera_front=16M
