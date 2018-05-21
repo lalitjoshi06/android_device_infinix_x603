@@ -8,7 +8,9 @@ LOCAL_SRC_FILES := \
 	mtk_ui.cpp \
 	mtk_omx.cpp \
 	mtk_bionic.cpp \
-	mtk_gps.cpp
+	mtk_gps.cpp \
+	program_binary_builder.cpp \
+	vtservice.cpp
 	
 
 # only for 32bit libraries
