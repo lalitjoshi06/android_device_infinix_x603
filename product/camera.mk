@@ -1,7 +1,3 @@
-USE_CAMERA_STUB := true
-MTK_MEDIA_PROFILES := true
-BOARD_USES_MTK_MEDIA_PROFILES := true
-
 # CM's Snap camera
 PRODUCT_PACKAGES += \
 	Snap
