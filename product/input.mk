@@ -5,10 +5,10 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/configs/keylayout/Generic.kl:system/usr/keylayout/Generic.kl
 
 # Keyhandler
-# PRODUCT_PACKAGES += \
-#	com.cyanogenmod.keyhandler
-#
-# PRODUCT_SYSTEM_SERVER_JARS += com.cyanogenmod.keyhandler
-#
+ PRODUCT_PACKAGES += \
+	com.cyanogenmod.keyhandler
+
+PRODUCT_SYSTEM_SERVER_JARS += com.cyanogenmod.keyhandler
+
 # Never dexopt the keyhandler
-# $(call add-product-dex-preopt-module-config,com.cyanogenmod.keyhandler,disable)
+$(call add-product-dex-preopt-module-config,com.cyanogenmod.keyhandler,disable)
