@@ -1,6 +1,3 @@
 # RIL
-BOARD_CONNECTIVITY_VENDOR := MediaTek
 BOARD_PROVIDES_RILD := true
 BOARD_RIL_CLASS := ../../../device/infinix/x603/ril
-MTK_IMS_SUPPORT = yes
-MTK_MULTI_SIM_SUPPORT = dsds
