@@ -10,10 +10,3 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
 muxreport \
 terservice
-
-# Configurations
-PRODUCT_COPY_FILES += \
-$(LOCAL_PATH)/configs/apns-conf.xml:system/etc/apns-conf.xml
-
-PRODUCT_PACKAGES += \
-Stk
