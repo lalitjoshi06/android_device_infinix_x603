@@ -10,9 +10,7 @@ Working:
 5. Video
 6. BT Fixed on 18.04.2018
 7. camera both and flash light
-
-Not Working
-1. Ril
+8. Ril (only outgoing call and message working in 3g mode) 
 
 
 Infinix Zero 5  - LineageOS 14.1 
