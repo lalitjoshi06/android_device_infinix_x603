@@ -10,7 +10,10 @@ LOCAL_SRC_FILES := \
 	mtk_bionic.cpp \
 	mtk_gps.cpp \
 	program_binary_builder.cpp \
-	vtservice.cpp
+	vtservice.cpp \
+	mtk_omx.cpp \
+	IGraphicBufferConsumer.cpp \
+	BufferItemConsumer.cpp
 	
 
 # only for 32bit libraries
