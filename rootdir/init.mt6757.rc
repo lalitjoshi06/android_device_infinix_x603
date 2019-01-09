@@ -28,6 +28,7 @@ on early-init
     mount debugfs debugfs /sys/kernel/debug
     chmod 0755 /sys/kernel/debug
     chmod 0644 /proc/cmdline
+    
 
 on init
     export LD_PRELOAD "libmtk_symbols.so"
