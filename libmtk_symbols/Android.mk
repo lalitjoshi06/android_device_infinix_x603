@@ -13,6 +13,7 @@ LOCAL_SRC_FILES := \
 	vtservice.cpp \
 	mtk_omx.cpp \
 	IGraphicBufferConsumer.cpp \
+	netutils.c \
 	BufferItemConsumer.cpp
 	
 
