@@ -18,7 +18,6 @@
 $(call inherit-product, vendor/cm/config/common_full_phone.mk)
 
 # Inherit device configuration
-$(call inherit-product, $(LOCAL_PATH)/device_x603.mk)
 $(call inherit-product, device/infinix/x603/prop.mk)
 
 # Inherit from those products. Most specific first.
@@ -52,7 +51,7 @@ PRODUCT_GMS_CLIENTID_BASE := android-infinix
 
 # Build fingerprint from Indian variant.
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    TARGET_DEVICE=x603 \
-    PRODUCT_NAME=lineage_x603 \
-	PRIVATE_BUILD_DESC="full_rlk6757_66_n-user 7.0 NRD90M 1524172887 release-keys"
-BUILD_FINGERPRINT := Infinix/H575/Infinix-X603:7.0/NRD90M/X603-H575A-N-IN-180420V205:user/release-keys
+TARGET_DEVICE=x603 \
+PRODUCT_NAME=lineage_x603 \
+BUILD_FINGERPRINT=Infinix/H575/Infinix-X603:7.0/NRD90M/X603-H575A-N-IN-180420V205:user/release-keys \
+PRIVATE_BUILD_DESC="full_rlk6757_66_n-user 7.0 NRD90M 1524172887 release-keys"
