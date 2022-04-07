@@ -35,3 +35,4 @@ Rear Camera | 13MP+12MP,f/2.0
 Front Camera | 16MP
 
 ---
+
